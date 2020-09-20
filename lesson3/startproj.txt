@@ -1,0 +1,11 @@
+Set
+
+python -m venv venv
+
+source venv/bin/activate
+
+#GIT
+git init
+git config --global config user.name "Olya"
+git config --global user.email "olyaromenska@gmail.com"
+
