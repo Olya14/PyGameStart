@@ -5,7 +5,9 @@
 4. check win?
 5. result
 6. play again?
-"""
+""" 
+import random
+
 
 def inputPlayerLetter():
     letter = ''
@@ -16,6 +18,18 @@ def inputPlayerLetter():
         return ['X', 'O'] #[player, bot]
     else:
         return ['O', 'X'] #[player, bot]
+
+def choiceRandom():
+    if random.randint(0, 1) == 0:
+        return ['X', 'O'] # 'Bot'
+    else:
+        return ['O', 'X'] # 'Player'
+
+def choiceX():
+    return ['X', 'O'] #[player, bot]
+
+def choiceO():
+    return ['O', 'X']
 
 #print(inputPlayerLetter()) # check!
 def printWelcome():
@@ -29,8 +43,19 @@ def printWelcome():
     print(menu)
     choice = 0
     while not (choice == 1 or choice == 2 or choice == 3 or choice == 4):
-        choice = int(nput('Are you choosing 1 or or O? ')) # str -> int
+        choice = int(input('Are you choosing 1 or or O? ')) # str -> int
 
-        if (choice == 1):
-            return choiceX() # return [список из элементов X и O]
+    if (choice == 1):
+        return choiceX() 
+    elif (choice == 2):
+        return choiceO()
+    elif (choice == 3):
+        return choiceRandom()
+    elif (choice == 4):
+        return inputPlayerLetter()
+    else:
+        return -1 # ERROR
 
+choices = printWelcome()
+print ('Player goes', choices [0])
+print ('Bot goes', choices [1])
