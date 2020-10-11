@@ -32,8 +32,12 @@ def choiceO():
     return ['O', 'X']
 
 #print(inputPlayerLetter()) # check!
+
 def printWelcome():
     menu = """
+    Welcome to 'Tic-Tac-Toe'
+
+    Chose your symbol/character
     Menu:
     1. Choice X
     2. Choice O
@@ -56,6 +60,49 @@ def printWelcome():
     else:
         return -1 # ERROR
 
-choices = printWelcome()
-print ('Player goes', choices [0])
-print ('Bot goes', choices [1])
+#print ('Player goes', choices [0])
+#print ('Bot goes', choices [1])
+
+def whoGoesFirst():
+    if random.randint(0, 1) == 0:
+        return 'Player'
+    else:
+        return 'Bot'
+
+
+def isWinner(board, letter):
+    return (
+        (board[1] == letter and board[2] == letter and board[3] == letter) or 
+        (board[4] == letter and board[5] == letter and board[6] == letter) or 
+        (board[7] == letter and board[8] == letter and board[9] == letter) or 
+        (board[1] == letter and board[4] == letter and board[7] == letter) or 
+        (board[2] == letter and board[5] == letter and board[8] == letter) or 
+        (board[1] == letter and board[5] == letter and board[9] == letter) or 
+        (board[3] == letter and board[5] == letter and board[7] == letter) or 
+        (board[3] == letter and board[6] == letter and board[9] == letter) 
+    )
+
+def makeMove(board, letter, move):
+    board[move] = letter
+
+
+
+def main():
+    while True: 
+        theBoard = [' '] * 10
+        
+
+        playerLetter, botLetter = printWelcome()
+        
+        gameIsPlaying = True
+
+        while gameIsPlaying:
+            # code for for playing
+
+            print('Do you want to play again? (yes/no)')
+            if not input().lower().startwith('y'):
+                break
+
+
+if __name__ == '__main__':
+     main()
